@@ -37,7 +37,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 SECRET_KEY = config("SECRET_KEY")
 
-ALLOWED_HOSTS = ["206.189.223.242",]
+ALLOWED_HOSTS = ["206.189.223.242", "chatdemo.xyz", "www.chatdemo.xyz"]
 
 ROOT_URLCONF = f'{config("PROJECT_NAME")}.urls'
 
