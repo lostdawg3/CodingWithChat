@@ -1,0 +1,33 @@
+<script type="text/javascript">
+	
+	function removeFriend(id, uiUpdateFunction){
+		payload = {
+			"csrfmiddlewaretoken": "{{csrf_token}}",
+			"receiver_user_id": id,
+		}
+		$.ajax({
+			type: 'POST',
+			dataType: "json",
+			timeout: 5000,
+			url: "{% url 'friend:remove-friend' %}",
+			data: payload,
+			success: function(data){
+				if(data.response == "Successfully removed that friend."){
+					console.log("Success...", data)
+				}
+				else if(data.response != null){
+					// console.error("Failed...", data)
+					// console.error("Failed...", data.response)
+					alert(data.response)
+				}
+			},
+			error: function(data){
+				// console.error("Error...", data)
+				alert("Something went wrong: " + data)
+			},
+			complete: function(data){
+				uiUpdateFunction()
+			}
+		})
+	}
+</script>
