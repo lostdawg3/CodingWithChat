@@ -8,9 +8,20 @@ https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/
 """
 
 import os
+from decouple import config
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ChatServerPlayground.settings')
+###############################################
+# USED IN DEVELOPEMENT
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ChatServerPlayground.settings')
+###############################################
+
+
+###############################################
+# ADDED for PRODUCTION
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', f'{config("PROJECT_NAME")}.settings')
+###############################################
+
 
 application = get_wsgi_application()
