@@ -164,7 +164,7 @@
 {% include 'snippets/chat_notifications.html' %}
 
 <script type="text/javascript">
-	var ws_scheme = window.location.protocal == "https:" ? "wss" : "ws";
+	var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
 	// var ws_path = ws_scheme + "://" + window.location.host + "/"; // development
 	var ws_path = ws_scheme + "://" + window.location.host + ":8001/"; // production
 
