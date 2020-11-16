@@ -110,7 +110,7 @@ PUBLIC CHAT
 	
 	// function setupPublicChatWebSocket(){
 		// ws:// or wss://
-	var ws_scheme = window.location.protocal == "https:" ? "wss" : "ws";
+	var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
 	{% if debug_mode %}
 		var ws_path = ws_scheme + "://" + window.location.host + "/public_chat/{{room_id}}/"; // development
 	{% else %}
